@@ -113,28 +113,25 @@
      (Image 10) where alpha, beta and gamma correspond to theta 4-6. 
    - In the Inverse_Kinematics.py file this is simply:
 
-'''python
-theta4 = atan2(R3_6[2,2], -R3_6[0,2])
-theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]), R3_6[1,2])
-theta6 = atan2(-R3_6[1,1], R3_6[1,0])
-
-'''
+    theta4 = atan2(R3_6[2,2], -R3_6[0,2])
+    theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]), R3_6[1,2])
+    theta6 = atan2(-R3_6[1,1], R3_6[1,0])
 
    - In IK_server.py the values of theta 4 and 6 were selected in the
      following section:
 
-'''python
-# Euler angles from rotation matrix
-theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]),R3_6$
 
-# choose theta 4 and 6 (CAST)
- if (theta5 > pi) :
-     theta4 = atan2(-R3_6[2,2], R3_6[0,2])
-     theta6 = atan2(R3_6[1,1],-R3_6[1,0])
- else:
-     theta4 = atan2(R3_6[2,2], -R3_6[0,2])
-     theta6 = atan2(-R3_6[1,1],R3_6[1,0])
-''' 
+    # Euler angles from rotation matrix
+    theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]),R3_6$
+
+    # choose theta 4 and 6 (CAST)
+    if (theta5 > pi) :
+      theta4 = atan2(-R3_6[2,2], R3_6[0,2])
+      theta6 = atan2(R3_6[1,1],-R3_6[1,0])
+    else:
+      theta4 = atan2(R3_6[2,2], -R3_6[0,2])
+      theta6 = atan2(-R3_6[1,1],R3_6[1,0])
+
 
    - The resulting code performed as below in IK_debug.py:
 
@@ -158,12 +155,10 @@ theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]),R3_6$
       - Reducing the forward kinematics calculations to FK.pickle and importing
         it in: 
 
-'''python
-# Load pre-formed forward kinematic formulas
-pickle_in = open("FK.pickle", "rb")
-FK = pickle.load(pickle_in)
 
-'''
+    # Load pre-formed forward kinematic formulas
+    pickle_in = open("FK.pickle", "rb")
+    FK = pickle.load(pickle_in)
 
    - The Photos directory contains snapshots of a complete inverse-kinematics
      pick and place operation in 'Complete_Run'
