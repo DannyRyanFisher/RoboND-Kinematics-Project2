@@ -173,3 +173,17 @@ theta6 = atan2(-R3_6[1,1], R3_6[1,0])
      complete operation in ~ 2 minutes. (Inferred from the photo name which 
      contains start and end time)
    - Please feel free to run code to confirm. 
+
+#### Critique & Improvements
+
+   - Critique 1- The robot takes a long time to perform the Inverse kinematics.
+     (~2mins for the whole operation)
+   - Suggested improvements:
+      - IK code could be saved in pickle files (attempted but still slower)
+      - Could convert matrix operations to numpy vs sympy as appreciable gains
+        in computation speed are possible.
+
+   - Critique 2- IK code could be organised more neatly to aid readability
+   - Could place the IK code into a class structure that is calculated once
+     at the initialising of IK-server.
+    
