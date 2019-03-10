@@ -2,9 +2,6 @@
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 
-## Rubric Points
-
-
 ### Kinematics Analysis
 
 #### Rubric 1
@@ -88,8 +85,7 @@
    - The positional calculation begins by calculating the wrist center from the
      known end-effector position (Image 4 & 5).  
 
-##### Image 4- Wrist centre position as a function of end-effector position
-##### and 'd6'
+##### Image 4- Wrist centre position as a function of end-effector position and 'd6'
 ![Image 4](./Photos/WC-Eq.jpg)
 
 ##### Image 5- Wrist centre position in matrix form.
@@ -117,16 +113,19 @@
      (Image 10) where alpha, beta and gamma correspond to theta 4-6. 
    - In the Inverse_Kinematics.py file this is simply:
 
-''' python
+'''python
+
 theta4 = atan2(R3_6[2,2], -R3_6[0,2])
 theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]), R3_6[1,2])
 theta6 = atan2(-R3_6[1,1], R3_6[1,0])
+
 '''
 
    - In IK_server.py the values of theta 4 and 6 were selected in the
      following section:
 
-''' python
+'''python
+
     # Euler angles from rotation matrix
     theta5 = atan2(sqrt(R3_6[0,2]*R3_6[0,2] + R3_6[2,2]*R3_6[2,2]),R3_6$
 
@@ -137,11 +136,12 @@ theta6 = atan2(-R3_6[1,1], R3_6[1,0])
     else:
         theta4 = atan2(R3_6[2,2], -R3_6[0,2])
         theta6 = atan2(-R3_6[1,1],R3_6[1,0])
+
 ''' 
 
    - The resulting code performed as below in IK_debug.py:
 
-![Image 10](./Photos/Kinematics-IK-Debug.jpg)
+![Image 10](./Photos/Kinematics-IK-Debug.png)
 
 ### Project Implementation
 
@@ -161,10 +161,11 @@ theta6 = atan2(-R3_6[1,1], R3_6[1,0])
       - Reducing the forward kinematics calculations to FK.pickle and importing
         it in: 
 
-''' python
+'''python
     # Load pre-formed forward kinematic formulas
     pickle_in = open("FK.pickle", "rb")
     FK = pickle.load(pickle_in)
+
 '''
 
    - The Photos directory contains snapshots of a complete inverse-kinematics
@@ -187,3 +188,6 @@ theta6 = atan2(-R3_6[1,1], R3_6[1,0])
    - Could place the IK code into a class structure that is calculated once
      at the initialising of IK-server.
     
+Credits for images 2-9 from source:
+Iravani, P. du Bois, J. (2017) ME40331 Robotics Engineering Lecture Notes.
+Bath University.
